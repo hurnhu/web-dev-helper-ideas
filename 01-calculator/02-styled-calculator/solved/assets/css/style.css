@@ -1,0 +1,34 @@
+.calcButton {
+    width: 100%;
+    height: 10vh;
+    border: 1px solid black;
+    text-decoration-color: white;
+    background: #D3CCE3;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+
+/* 
+by default bootstrap columns has some padding
+I want all of my buttons close together to resemble a real calculator
+*/
+.nopadding {
+    padding: 0%;
+}
+
+body{
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.colorDisplayAreas {
+    background-color: gray;
+    border: 1px dotted black;
+}
+
+.history {
+    width: 100%;
+    height: 100%;
+}
