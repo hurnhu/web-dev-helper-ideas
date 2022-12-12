@@ -125,6 +125,8 @@ function updateAnswer(){
 
     let answer = ""
 
+    //A try catch will attempt to run some code. If the code has an error
+    //This will fall into the catch.
     try {
         answer = eval(mathProblem)
     } catch (error) {
