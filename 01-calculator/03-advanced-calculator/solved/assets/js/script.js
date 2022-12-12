@@ -123,7 +123,15 @@ function updateAnswer(){
     //EX eval("2+2") will return 4
     //this also mean if their is any valid js code is passed to eval, it will run it. this is a security risk
 
-    document.getElementById("solution").textContent = eval(mathProblem)
+    let answer = ""
+
+    try {
+        answer = eval(mathProblem)
+    } catch (error) {
+        answer = "There was issue with your math problem."
+    }
+
+    document.getElementById("solution").textContent = answer
     addNewHistory(mathProblem)
     clearEverything()
 }

@@ -10,4 +10,3 @@ You need to create a working calculator using vinilla javascript.
 - be able to add, divide, subtrace, multiply, clear
 - History of past calculations
 - Error handling for bad input
-- 
