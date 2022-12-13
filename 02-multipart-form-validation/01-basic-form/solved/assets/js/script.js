@@ -63,7 +63,7 @@ $(document).ready(function() {
             //[^0-9] - not any digit. ^ inside of a range means not any of these items
             //$ - go all the way to the end
             //As a whole this reads
-            //check to see if this string contains one or more letters (lower or upper case) and no numbers
+            //check to see if this string is one or more letters (lower or upper case) and no numbers
 
             return /^[a-zA-Z]+[^0-9]$/.test(elementToValidate.val())
         }
