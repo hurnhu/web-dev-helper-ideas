@@ -13,6 +13,10 @@ With this form only a single question will be asked at a time. A user can click 
 
 The user can not leave the page untill they entered something and it is valid.
 
+For this i will be using no css framework, but will be using jquery.
+
+This can be with just normal javascript
+
 ## Expected Features
 
 - only show 1 question at a time
