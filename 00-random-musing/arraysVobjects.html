@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+        *I did these in a previous class, but thought these would be usful for everyone
+        *
+        * 
+        */
+       //simple array
+        let tempArr = [1,2,3,4];
+
+        //simple object
+        let tempObj = {
+            name: 'mike',
+            age: 27
+        }
+
+        console.log(tempArr);
+        console.log(tempObj);
+
+        let classRoom = [
+            {
+                name: "James",
+                class: "full stack",
+                age: 32,
+                gender: "m",
+                hasJob: false,
+                //function that alters this entry in the object
+                mAddPetIfNoPet: function(myNewPet){
+                    if (this.petsArr.length === 0) {
+                        this.petsArr.push(myNewPet);
+                    }
+                },
+                mBirthday: function(){
+                    this.age ++;
+                    console.log(this.name + ' new age is: ' + this.age);
+                },
+                //array nested in the object
+                petsArr: [
+                    {
+                        type: "cat",
+                        name: "kiki"
+                    }
+                ],
+                //nested object with a nested array
+                petsObj: {
+                    cats: [
+                        {
+                            name: 'kiki'
+                        }
+                    ]
+                }
+            },
+            {
+                name: "Jack",
+                class: "full stack",
+                age: 22,
+                gender: "m",
+                hasJob: true,
+                
+                mAddPetIfNoPet: function(myNewPet){
+                    if (this.petsArr.length === 0) {
+                        this.petsArr.push(myNewPet);
+                    }
+                },
+                mBirthday: function(){
+                    this.age ++;
+                    console.log(this.name + ' new age is: ' + this.age);
+                },
+                petsArr: [
+                    {
+                        type: "dog",
+                        name: "doug"
+                    }
+                ],
+                petsObj: {
+                    dog: [
+                        {
+                            name: 'doug'
+                        }
+                    ]
+                }
+            },
+            {
+                name: "Olivia",
+                class: "full stack",
+                age: 42,
+                gender: "f",
+                hasJob: true,
+                
+                mAddPetIfNoPet: function(myNewPet){
+                    if (this.petsArr.length === 0) {
+                        this.petsArr.push(myNewPet);
+                    }
+                },
+                mBirthday: function(){
+                    this.age ++;
+                    console.log(this.name + ' new age is: ' + this.age);
+                },
+                petsArr: [
+                    {
+                        type: "cat",
+                        name: "meow mix"
+                    },
+                    {
+                        type: "dog",
+                        name: "doggo"
+                    },
+                ],
+                petsObj: {
+                    cats: [
+                        {
+                            name: 'meow mix'
+                        }
+                    ],
+                    dogs: [
+                        {
+                            name: 'doggo'
+                        }
+                    ]
+                }
+            },
+            {
+                name: "Emily",
+                class: "full stack",
+                age: 19,
+                gender: "f",
+                hasJob: true,
+                
+                mAddPetIfNoPet: function(myNewPet){
+                    if (this.petsArr.length === 0) {
+                        this.petsArr.push(myNewPet);
+                    }
+                },
+                mBirthday: function(){
+                    this.age ++;
+                    console.log(this.name + ' new age is: ' + this.age);
+                },
+                petsArr: [
+                    {
+                        type: "cat",
+                        name: "pepsi"
+                    },
+                    {
+                        type: "cat",
+                        name: "coke"
+                    },
+                    {
+                        type: "cat",
+                        name: "oreo"
+                    },
+                    {
+                        type: "dog",
+                        name: "star"
+                    }
+                ],
+                petsObj: {
+                    cats: [
+                        {
+                            name: 'pepsi'
+                        },
+                        {
+                            name: 'coke'
+                        },
+                        {
+                            name: 'oreo'
+                        },
+                    ],
+                    dogs: [
+                        {
+                            name: 'star'
+                        }
+                    ]
+                }
+            },
+            {
+                name: "Mike",
+                class: "full stack",
+                age: 77,
+                gender: "m",
+                hasJob: true,
+                
+                mAddPetIfNoPet: function(myNewPet){
+                    if (this.petsArr.length === 0) {
+                        this.petsArr.push(myNewPet);
+                    }
+                },
+                mBirthday: function(){
+                    this.age ++;
+                    console.log(this.name + ' new age is: ' + this.age);
+                },
+                petsArr: [
+                ],
+                petsObj: {
+                }
+            },
+        ];
+
+    //running our function to add a new pet to everyone 
+    //ONLY if they do not have a pet
+    for (let index = 0; index < classRoom.length; index++) {
+        classRoom[index].mAddPetIfNoPet({type: 'cat', name: 'new cat'});
+    }
+    console.log(classRoom);
+
+    //   add a new pet cat to anyone with out a pet
+    for (let index = 0; index < classRoom.length; index++) {
+        for (let innerIndex = 0; innerIndex < classRoom[innerIndex].petsArr.length; innerIndex++) {
+            if (classRoom[index].petsArr.length === 0) {
+                classRoom[index].petsArr.push({type: 'cat', name: 'wiskers'});
+            }
+        }
+    }
+
+    //find person named olivia
+    let foundIndex = 0
+    for (let index = 0; index < classRoom.length; index++) {
+        if (classRoom[index].name === "Olivia") {
+            foundIndex = index;
+        }
+    }
+    console.log(foundIndex);
+    console.log(classRoom);
+
+    //find everyone with a cat (pets arr)
+    let hasCat = [];
+    for (let index = 0; index < classRoom.length; index++) {
+        for (let innerIndex = 0; innerIndex < classRoom[innerIndex].petsArr.length; innerIndex++) {
+            if (classRoom[index].petsArr.length > 0 && classRoom[index].petsArr[innerIndex].type === "cat") {
+                hasCat.push(classRoom[index]);
+            }
+        }
+    }
+    console.log('people wth cats');
+    console.log(hasCat);
+
+    //find everyone with a cat (pets arr)
+    let noCat = [];
+    for (let index = 0; index < classRoom.length; index++) {
+        for (let innerIndex = 0; innerIndex < classRoom[innerIndex].petsArr.length; innerIndex++) {
+            if (classRoom[index].petsArr.length === 0) {
+                noCat.push(classRoom[index]);
+            }
+        }
+    }
+    console.log('people wth out pets');
+    console.log(noCat);
+
+    //add a new pet cat to anyone with out a pet
+    for (let index = 0; index < classRoom.length; index++) {
+        for (let innerIndex = 0; innerIndex < classRoom[innerIndex].petsArr.length; innerIndex++) {
+            if (classRoom[index].petsArr.length === 0) {
+                classRoom[index].petsArr.push({type: 'cat', name: 'wiskers'});
+            }
+        }
+    }
+    console.log(classRoom);
+
+    //removing all cats // bad i dont remember why
+    for (let index = 0; index < classRoom.length; index++) {
+        for (let innerIndex = 0; innerIndex < classRoom[innerIndex].petsArr.length; innerIndex++) {
+            if (classRoom[index].petsArr.length > 0 && classRoom[index].petsArr[innerIndex].type === "cat") {
+                // console.log('removing cat');  
+                // console.log(classRoom[index].petsArr);  
+                classRoom[index].petsArr = classRoom[index].petsArr.splice(innerIndex, 1);
+            }
+        }
+    }
+    console.log(classRoom);
+
+    //removing all cats // bad i dont remember why
+    for (let index = 0; index < classRoom.length; index++) {
+        let newPetsArr = [];
+        for (let innerIndex = 0; innerIndex < classRoom[innerIndex].petsArr.length; innerIndex++) {
+            if (classRoom[index].petsArr.length > 0 && classRoom[index].petsArr[innerIndex].type !== "cat") {
+                newPetsArr.push(classRoom[index].petsArr[innerIndex]);
+            }
+        }
+        classRoom[index].petsArr = newPetsArr
+    }
+    console.log(classRoom);
+    
+    for (let index = 0; index < classRoom.length; index++) {
+        let newPetsArr = [];
+        for (let innerIndex = 0; innerIndex < classRoom[innerIndex].petsArr.length; innerIndex++) {
+            if (classRoom[index].petsArr.length > 0 && classRoom[index].petsArr[innerIndex].type !== "cat") {
+                newPetsArr.push(classRoom[index].petsArr[innerIndex]);
+            }
+        }
+        classRoom[index].petsArr = newPetsArr
+    }
+    console.log(classRoom);
+    </script>
+</body>
+</html>
