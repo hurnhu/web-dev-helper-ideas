@@ -1,0 +1,33 @@
+.btn{
+    margin: 4px;
+}
+
+[id^=timer-]{
+    border: 1px solid gray;
+    margin: 3px;
+    overflow-wrap: break-word;
+}
+
+[is-done="true"] {
+    background-color: lightgreen;
+}
+
+[is-paused="true"] .pause {
+    display: none;
+}
+
+[is-paused="false"] .pause {
+    display: inline-block;
+}
+
+[is-paused="true"] .unpause {
+    display: inline-block;
+}
+
+[is-paused="false"] .unpause {
+    display: none;
+}
+
+[is-done="true"] .pause{
+    display: none;
+}
