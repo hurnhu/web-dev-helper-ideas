@@ -2,12 +2,19 @@
     margin: 4px;
 }
 
+/* ^ in a selector means starting with
+    since we are dynamically creating timer-{someNumber}
+    div's we need to use this selector to apply the classes to all of them
+*/
 [id^=timer-]{
     border: 1px solid gray;
     margin: 3px;
     overflow-wrap: break-word;
 }
 
+/* we are adding an attribute to track if something is done/paused
+    and applying classes baised on that
+*/
 [is-done="true"] {
     background-color: lightgreen;
 }
