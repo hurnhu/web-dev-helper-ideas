@@ -11,6 +11,8 @@ https://javascript.info/file
 
 3. html element input of type file
 
+4. bulma - the CSS framework
+
 I want to make an application that i can upload a csv file and have it render to the webpage.
 
 I would also like to save the contents of the csv to local storage
