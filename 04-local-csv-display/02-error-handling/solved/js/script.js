@@ -80,12 +80,16 @@ $(document).ready(function () {
   });
 
   function showUploadView(){
+    //we are using jquery methods to hide/show elements
+    //hide adds the display none style.
     $("#upload-new-view").show()
     $("#exsisting-view").hide()
     $("#file-view").hide()
   }
 
   $("#new").on("click", function(){
+    //when the user clicks on the new button
+    //we call our function to display our uploder
     showUploadView()
   })
 
@@ -125,34 +129,61 @@ $(document).ready(function () {
   })
 
   $("#tableBody").on("click", function(event) {
+    //check to see if what was click inside the table body was a button
     if(event.target.matches("button")){
+      //if it was a button we will empty the view container to make sure any
+      //previous loaded files are removed
       $("#file-view-container").empty()
+      //we store the file name as a data attribute
+      //we pull it off and store it as the file we are loading
       let fileToLoad = event.target.dataset.filename
+      //we reach into localstoreage for the file and then parse it
       let fileData = JSON.parse(localStorage.getItem(fileToLoad))
+      //creating a table element that we will append into
       let table = $("<table class='table'></table>")
 
       let th = $("<thead>")
       let tb = $("<tbody>")
+      //we loop through each row of data with .forEach
       fileData.forEach((item, index) => {
+        //if we are on the first element
+        //we know this will be are header rows
         if(index === 0){
+          //create a new row for our headers
           let tr = $("<tr>")
           
+          //object.values will return a array of ONLY the values of the object passed in
+          //EX if our object is {test: 1, new: 2} -it will produce> [1,2]
           Object.values(item).forEach(curItem => {
+            //for each of the items in the new array
+            //we are creating a new th and putting it into the table row we made
             tr.append($("<th>").text(curItem))
           })
+          //once we make all of the headers we are going to append the table row into the table head
           th.append(tr)
         } else {
+          //anything that is not the first element is going to be a data row
           let tr = $("<tr>")
+          //object.values will return a array of ONLY the values of the object passed in
+          //EX if our object is {test: 1, new: 2} -it will produce> [1,2]
           Object.values(item).forEach(curItem => {
+            //for each of the items in the new array
+            //we are creating a new td and putting it into the table row we made
             tr.append($("<td>").text(curItem))
           })
+          //we then append a new row into the table body
           tb.append(tr)
         }
       })
 
+      //once we fillout all of our new rows
+      //we append the table head, followed by the body
       table.append(th)
       table.append(tb)
+      //then we finally add the table to the page
+      //at this point it is still hidden
       $("#file-view-container").append(table)
+      //now we show the file-view
       $("#file-view").show()
     }
   })
